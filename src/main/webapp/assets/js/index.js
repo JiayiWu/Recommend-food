@@ -11,6 +11,7 @@ $(function(){
         $('#reset').blur();
     });
     $('#tip-m').text(timeTip());
+    sloganR();
 });
 
 var weatherC;
@@ -144,6 +145,21 @@ function timeTip(){
         return "中午好!";
     else
         return "下午好!";
+}
+
+function sloganR(){
+    jQuery.ajax({
+        url: 'word/recommend',
+        type: 'post',
+        dataType: 'json',
+        success: function (data) {
+            $('#slogan').text(data);
+
+        },
+        error:function(data){
+            $('#slogan').text("致虚极，守静笃。");
+        }
+    });
 }
 
 function appendFuture(day1_date,day1_txt_d,day1_txt_n,day1_tmp,day2_date,day2_txt_d,day2_txt_n,day2_tmp,day3_date,day3_txt_d,day3_txt_n,day3_tmp){

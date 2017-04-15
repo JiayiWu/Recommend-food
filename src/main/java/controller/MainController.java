@@ -1,11 +1,14 @@
 package controller;
 
+import config.FoodList;
 import config.MessageInfo;
+import config.SloganList;
 import model.Food;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import service.ManageFood;
+import util.DateUtil;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -75,8 +78,20 @@ public class MainController {
     @ResponseBody
     public MessageInfo getRecommend(){
 
+        if (DateUtil.isLate()){
+            if (!FoodList.isLate()){
+                manageFood.initFood();
+                FoodList.setIsLate(true);
+            }
+        }
         return manageFood.getRecommend();
 
+    }
+
+    @RequestMapping("/word/recommend")
+    @ResponseBody
+    public String getRecommendWord(){
+        return SloganList.getRecommendWord();
     }
 
 

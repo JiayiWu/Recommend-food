@@ -12,6 +12,8 @@ import java.util.List;
  */
 public class FoodList {
 
+    private static boolean isLate = false;
+
     private static ArrayList<FoodVO> foods = new ArrayList<FoodVO>();
 
     public static void initFood(){
@@ -26,5 +28,11 @@ public class FoodList {
         return foods;
     }
 
+    public static boolean isLate() {
+        return isLate;
+    }
 
+    public static void setIsLate(boolean isLate) {
+        FoodList.isLate = isLate;
+    }
 }
