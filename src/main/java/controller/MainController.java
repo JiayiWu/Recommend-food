@@ -24,9 +24,16 @@ public class MainController {
 
     @RequestMapping("/food/init")
     @ResponseBody
-    public void initFood(){
+    public boolean initFood(){
+        try {
+            manageFood.initFood();
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
 
-        manageFood.initFood();
+        }
+
+        return true;
 
     }
 
@@ -61,7 +68,7 @@ public class MainController {
 
     }
 
-   
+
 
 
     @RequestMapping("/food/recommend")
