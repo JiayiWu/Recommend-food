@@ -19,7 +19,7 @@ public class FoodVO {
     }
 
     public FoodVO(Food food){
-        switch (food.getId()){
+        switch (food.getType()){
             case 0:
                 this.name = "主食";
                 break;

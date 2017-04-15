@@ -13,6 +13,7 @@ function addFood(type){
         success: function (data) {
             if (data.result == true) {
                 swal("成功", "添加成功", "success");
+                $('#foodname').val("");
                 $('#tablepool').bootstrapTable('refresh');
 
             } else {

@@ -43,10 +43,11 @@ public class MainController {
     public MessageInfo deleteFood(HttpSession session,int[] orderid) {
         if (session.getAttribute("user") != null) {
             for (int tem : orderid) {
-                if (manageFood.deleteFood(tem).isResult()) {
-                    return new MessageInfo(false, "某些订单状态异常,只处理了部分订单");
+                if (!manageFood.deleteFood(tem).isResult()) {
+                    return new MessageInfo(false, "某些食品状态异常,只处理了部分订单");
                 }
             }
+            return new MessageInfo(true,"删除成功");
         }
         return new MessageInfo(false, "您无权限进行操作");
 
@@ -60,13 +61,7 @@ public class MainController {
 
     }
 
-    @RequestMapping("/food/allList")
-    @ResponseBody
-    public Object getAllList(HttpSession session,int type){
-
-        return manageFood.findFoodList(type);
-
-    }
+   
 
 
     @RequestMapping("/food/recommend")

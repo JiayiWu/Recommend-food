@@ -20,13 +20,14 @@ function init(){
         $('#confirmB').unbind('click');
         $('#confirmB').click(
             function(){
-                $("#select_k1").change(function () {
-                    if ($(this).val() == "no-carry") {
+               var tem1 = $("#select_k1 option:selected").val();
+                    if (tem1 == "no-carry") {
+
                         addFood(0);
                     } else {
                         addFood(4);
                     }
-                });
+
             });
     });
 
