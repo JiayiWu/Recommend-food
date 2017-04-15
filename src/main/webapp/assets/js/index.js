@@ -75,8 +75,8 @@ function recommendFood(){
                 appendFood("饮品",drink);
             }else {
 
-                for (var i1 = 0;i< myObject.length;i++){
-                    var food1 = myObject[i];
+                for (var i1 = 0;i1< myObject.length;i1++){
+                    var food1 = myObject[i1];
                     if (food1.type != 2){
                         appendFood(food1.name,food1.foodName);
                     }

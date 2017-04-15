@@ -9,9 +9,7 @@ import java.util.Random;
  */
 public class SloganList {
 
-    static {
-        recommend();
-    }
+
 
     private static  String[] slogan = {"幸得识卿桃花面，自此阡陌多暖春",
             "想要我的财宝吗？去吧，我把一切全都放在了那里——伟大航路",
@@ -38,6 +36,14 @@ public class SloganList {
         Random random = new Random();
         int tem = random.nextInt(slogan.length);
         recommendWord = slogan[tem];
+    }
+
+    public static String[] getSlogan() {
+        return slogan;
+    }
+
+    public static void setSlogan(String[] slogan) {
+        SloganList.slogan = slogan;
     }
 
     public static String getRecommendWord() {

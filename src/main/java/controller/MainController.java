@@ -91,6 +91,8 @@ public class MainController {
     @RequestMapping("/word/recommend")
     @ResponseBody
     public String getRecommendWord(){
+        if (SloganList.getRecommendWord().equals(""))
+            SloganList.recommend();
         return SloganList.getRecommendWord();
     }
 
